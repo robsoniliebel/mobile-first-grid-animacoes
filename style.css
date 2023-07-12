@@ -1,0 +1,475 @@
+/* VERSÃO MOBILE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-heading: 'Staatliches', sans-serif;
+    --ff-texting: 'Roboto', cursive;
+    --ff-footer: 'Open Sans', sans-serif;
+
+    --bg-primary: hsla(218, 17%, 62%, 1);
+    --bg-secondary: hsla(233, 100%, 97%, 1);
+    --bg-tertiary: hsla(275, 18%, 79%, 1);
+    --bg-bottom: hsla(312, 91%, 96%, 1);
+   
+    --fc-primary: hsla(0, 0%, 100%, 1);
+    --fc-secondary: hsla(274, 84%, 12%, 1);
+    --fc-tertiary: hsla(232, 17%, 35%, 1);
+
+    font-size: 62.5%;
+    --fs-body: 2rem;
+    --fs-heading: 4rem;
+    --fs-footer: 1.4rem;
+}
+
+/* Aqui foi colocado a cor de fundo*/
+body {
+    background: var(--bg-secondary);
+}
+
+/* Ajuste da Logo*/
+#logo {
+    padding: 3.2rem 0;
+}
+
+/* Aqui foi colocado esse comando para a logo do desktop não aparecer no mobile */
+#logo-desktop {
+    display: none;
+}
+
+/* Ajuste do Titulo Space Cream*/
+h1 {
+    font-size: var(--fs-heading);
+    color: var(--fc-primary);
+    font-weight: 400;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+    -webkit-font-smoothing: antialiased; /*comando para suavizar a fonte*/
+}
+
+/* Foi dado esse comando para o texto do footer não aparecer no mobile */
+footer {
+    visibility: hidden;
+}
+
+/* Ajuste do Texto Space Cream e nomes dos sorvetes*/
+h1, span {
+    
+    /* tipo da fonte */
+   font-family: var(--ff-heading);
+    
+    /* deixa as todas letras maisculas */
+    text-transform: uppercase;
+    
+    /* distaciamento entre as letras */
+    letter-spacing: 0.2rem;
+    
+    /* distancia entre as linhas */
+    line-height: 3.4rem;
+}
+
+/* Ajuste do Header onde contem a logo, Titulo e cor de fundo*/
+header {
+    background: var(--bg-primary);
+    display: grid;
+    place-items: center;
+}
+
+/* Ajuste da barra do Space Cream*/
+.title {
+    background: var(--bg-tertiary);
+    margin-bottom: 2.9rem;
+    padding: 0.8rem;
+    width: 100%;
+    text-align: center;
+}
+
+/* Ajuste do conteudo onde está o P e as Imagens*/
+main {
+    display: flex;
+    flex-direction: column; /*foi usado esse comando para todo o conteudo
+    ficar na vertical mais info: https://developer.mozilla.org/pt-BR/docs/Web/CSS/flex-direction*/
+    align-items: center;
+    padding: 1.8rem 3.2rem 6rem;
+}
+
+/* Ajuste do conteudo do P*/
+.text {
+    font-family: var(--ff-texting);
+    text-align: center;
+    width: 31.5rem;
+    font-size: 1.3rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    color: var(--fc-secondary);
+    -webkit-font-smoothing: antialiased; /*comando para suavizar a fonte*/
+}
+
+/* Esse comando é para o texto do desktop não aparecer no mobile */
+.text-desktop {
+    display: none;
+}
+
+/* Ajuste contendo todo o conteudo dentro da div cards */
+.cards {
+    display: grid;
+    gap: 3.2rem; /*esse comando é para dar espaçamento entre as imagens*/
+    
+    margin-top: 6rem; /*esse comando foi dado para dar o espaçamento entre
+    o texto do <p> e o primeiro card*/
+}
+
+/* Ajuste geral dos card entro da div cards*/
+.cards .card {
+    position: relative;
+    /* Foi usado position relative, Isso significa que
+    é possível ajustar o elemento para cima, para baixo,
+    para a esquerda ou para a direita, usando as propriedades
+    top, bottom, left e right ex: https://developer.mozilla.org/pt-BR/docs/Web/CSS/position*/
+    
+    
+    
+    height: fit-content; /*função também pode ser usado como previsto tamanho da caixa de width, height,
+     min-width, min-height, max-width e max-height, onde os tamanhos máximo e mínimo referem-se ao tamanho
+     do conteúdo.*/
+ 
+}
+
+/* Ajuste dos efeitos nos Cards */
+.card:hover {
+    /* Comando para quando passar o mouse em cima a seta virar uma mãozinha de link */
+    cursor: pointer;
+    /* Comando para quando passar o mouse em cima a imagem aumentar */
+    transform: scale(1.1);
+    /* Comando para efeito para quando usar o transform scale, aqui voce defini a velocidade que ele vai aumentar */
+    transition: all 400ms;
+}
+
+    /* Ajuste das Animações */
+.card {
+    /* Comando de ajuste da animação coloca animation e o nome que foi dado no @keyframe, ai coloca a velocidade 
+    e o delay do efeito e depois coloca o nome do efeito que vai usar aqui no caso usei backwards para os cards
+    virem de baixo para cima */
+    animation: downtop 700ms 175ms backwards;
+}
+
+    /* Aqui foi usado esse codigo para ajustar a velocidade do delay de cada card quando abre o site, para ficar
+    cada imagem com um tempo diferente da outra */
+    .cards .card:nth-child(1) {
+        animation-delay: 200ms;
+    }
+
+    .cards .card:nth-child(2) {
+        animation-delay: 300ms;
+    }
+
+    .cards .card:nth-child(3) {
+        animation-delay: 400ms;
+    }
+
+    .cards .card:nth-child(4) {
+        animation-delay: 500ms;
+    }
+
+    .cards .card:nth-child(5) {
+        animation-delay: 600ms;
+    }
+
+    .cards .card:nth-child(6) {
+        animation-delay: 700ms;
+    }
+    
+
+/* Ajuste geral dos conteudos que vão dentro dos cards */
+.cards .card span {
+    position: absolute;
+    /* Foi usado position absolute para sobrepor o Span (botao com nome do sorvete, para então
+    ficar em cima da imagem e realizar o posionamento dela */
+
+    /* Tamanho da fonte */
+    font-size: var(--fs-body);
+    /* Aqui foi usado o background para dar a cor do fundo do texto, no caso o fundo do botão */
+    background: var(--bg-bottom);
+    /* Border-Radius foi usado para arrendondar as images para não ficarem quadradas inteiras, dar uma leva curva na imagem */
+    border-radius: 2rem;
+    /* Cor da Fonte */
+    color: var(--fc-tertiary);
+    /* Tamanho do botão, nesse caso o tamanho de largura deles */
+    width: 11.2rem;
+    /* Alinhar o texto ao centro */
+    text-align: center;
+    /* Espaçamento das linhas */
+    letter-spacing: 0.1rem;
+    /* Altura do distanciamento do texto em relação ao item acima */
+    top: 1.6rem;
+    /* Distancia da direita do distanciamento ao corpo onde está o item  */
+    right: 1.6rem;
+    
+}
+
+.cards .card img {
+    width: 100%; /* aqui foi usado esse comando para ajustar todos cards usando o comando height: fit-content no cards e card
+    par então todos cards com imagem e botao e o texto ficar todos juntos*/
+}
+
+
+/* Configuração dos efeitos aplicados nos Cards, apos configurado tem que criar no primeiro css aqui no caso o mobile,
+criar .card {e usar o código animation: o nome que foi usado no keyframe aqui no caso o downtop e dar o ajuste de tempo e efeito */
+@keyframes downtop {
+    0% {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slidein {
+    0% {
+        opacity: 0;
+        transform: translateX(-38rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes logorotate {
+    from {
+        transform: rotateY(360deg);
+    }
+}
+
+
+
+/* VERSÃO TABLET - RESPONSIVO PARA TABLET*/
+
+/* @media é para ser usado quando alterando a resolução muda o comportamento e ajuste e alinhamento da pagina, assim
+podendo transformar o modo de visulização de diferentes formas, no mobile um tipo, no tablet outro tipo e no desktop outro tipo
+o comando min-width é usado para definir a partir de qual tamanho de visulização a pagina ira mudar a visualização */
+@media (min-width: 768px) {
+    
+    /* aqui foi usado esse comando para a pagina mudar o alinhamento, mudando de vertical pra horizontal, assim o header
+    sai do topo e vai para a lateral esquerda */
+    .page {
+        display: flex;
+    }
+    /* Aqui foi colocado o width para definir a largura do header que está indo para a lateral */
+    header {
+        width: 37.7rem;
+    /* Aqui foi usado o heigth com 100vh para para ele pegar a altura da pagina toda */
+        height: 100vh;
+        /* Aqui foi usado para a barra ficar fixa na lateral esquerda */
+        position: fixed;  
+        /* Aqui foi usado o display flex para poder movimentar o header que tem a logo, h1 e o p */
+        display: flex;
+        /* Aqui foi usado o flex-direction column para a logo, h1 e o p ficarem um em baixo do outro */
+        flex-direction: column;
+
+        animation: slidein 700ms 350ms backwards;
+    }
+    /* Ajuste do titulo para posicionar o titulo corretamente, obs: foi usado o margin para ajuste de medidas */
+    .title {
+        margin-bottom: 3.2rem;
+    }
+
+    /* Aqui foi usado esse comando para o texto do mobile não aparecer na versão desktop */
+    .text {
+        display: none;
+    }
+
+
+
+    .text-desktop {
+        /* Foi usado para poder ajustar os textos e não alterar a estrutura */
+        display: block;
+
+        /* Cor do Texto */
+        color: var(--fc-primary);
+
+        /* Fonte do Texto */
+        font-family: var(--ff-texting);
+
+        /* Ajuste do tamanho do texto */
+        font-size: 1.4rem;
+        
+        /* Tipo da fonte aqui normal, mais pode usar italic ou strong */
+        font-style: normal;
+        
+        /* Intensidade da fonte, tipo um negrito forte ou normal */
+        font-weight: 400;
+        
+        /* Espaçamento entre as linhas */
+        line-height: 2rem;
+        
+        /* largura da caixa do texto */
+        width: 28rem;
+        
+        /* alinhamento do texto */
+        text-align: center;
+
+
+    }
+
+
+    /* Aqui foi usado o margin-left para os cards não ficarem em cima do header laterar*/
+    .cards {
+        margin-left: 37.7rem;
+        margin-top: 2rem;
+        margin-bottom: 0;
+        grid-template-areas: 
+        'A B'
+        'C B'
+        'C D'
+        'E F'        ;
+    }
+    /* Apos criado o grid template-areas ai vai a identificação de cada imagem no grid */    .cards .card:nth-child(1) {
+        grid-area: A;
+    }
+
+    .cards .card:nth-child(2) {
+        grid-area: B;
+    }
+
+    .cards .card:nth-child(3) {
+        grid-area: D;
+    }
+
+    .cards .card:nth-child(4) {
+        grid-area: C;
+    }
+
+    .cards .card:nth-child(5) {
+        grid-area: F;
+    }
+
+    .cards .card:nth-child(6) {
+        grid-area: E;
+    }
+
+        footer {
+        /* Distancia do footer em relação aos Cards */
+        padding-top: 2rem;
+        
+
+        /* Foi usado esse comandao para centralizar o texzto do footer p e do footer p a para ficar no centro das cars*/
+        margin-left: 37.7rem;
+
+        /* Foi usado esse comando para ajustar a altura de distancia do footer em relação ao card, foi usado padding pois
+        como está o footer dentro do main, ai usa padding se fosse fora do main ai usaria um margin top
+        Obs: Atentar a isso quando o elemento está na mesma tag usa padding quando está fora usa margin, por isso muito 
+        importante usar o F12 o Dev Tools para poder inspecionar o elemento e ver a qual elemento está o item que vai
+        ajustar para não coincidir com o mesmo elemento na mesma tag que dai o que vale é o efeito cascata, equivale o
+        o último comando dado a tag assim descofigurando toda tag onde sempre da os erros **ATENCAO A ISSO  - MEU ERRO NO CODIGO */
+       
+        /* Foi dado esse comando para o texto do footer aparecer somente no tablet e desktop */
+        visibility: visible;
+    }
+
+           /* Aqui foi usado o comando da fonte e o peso da fonte no testo fale conosco... */
+    footer p {
+        /* Tipo da fonte, que foi estilizado no root, obs: a fonte do footer é diferente */
+        font-family: var(--ff-footer);
+        /* Tamanho da fonte */
+        font-size: var(--fs-footer);
+        /* Força da fonte, tipo negrito ou mais leve, por isso foi usado 400 para ficar mais leve */
+        font-weight: 400;
+        /* Cor da Fonte */
+        color: var(--fc-tertiary);   
+        /* Remover decoração do texto, aqui no caso para não aparecer azul e sublinhado, e sim aparecer a cor sem o subilinhado */
+        text-decoration: none;
+        /* distanciamento das letras */
+        line-height: 2.8rem;
+        /* Foi dado esse comando para dar a distancia do footer de baixo */
+        padding-bottom: 1.6rem;
+        
+    }
+
+    /* Aqui foi dado o comando para deixar o @spacecrem mais forte como negrito, também poderia usar strong como tag no html nessa parte */
+    footer p a {
+        font-weight: bold;
+        /* Aqui foi usado esse comando para não deixar colorido ou com url, esse comando sempre usa para deixar o texto como esta sublinado */
+        font-size: var(--fs-footer);
+        /* Remover decoração do texto, aqui no caso para não aparecer azul e sublinhado, e sim aparecer a cor sem o subilinhado */
+        text-decoration: none;
+        /* Tipo da fonte, que foi estilizado no root, obs: a fonte do footer é diferente */
+        font-family: var(--ff-footer);
+        /* Cor da fonte  */
+        color: var(--fc-tertiary);
+    }
+
+     }
+
+/* VERSÃO DESKTOP - RESPONSIVO PARA DESKTOP*/
+
+@media (min-width: 1024px) {
+    
+    body {
+        background: white;
+    }
+
+    /* Esse comando eu dei para retirar o scroll do desktop */
+    main {
+        padding: 0 3.2rem 0;
+    }
+
+    
+    /* Aqui fica a ordem que as imagens vão aparecer no grid */
+    .cards {
+        grid-template-areas: 
+        'A B C' 
+        'D B F' 
+        'D E F'
+    }
+
+    /* Aqui foi usado esse comando para a logo do mobile não aparecer no desktop */
+    #logo {
+        display: none;
+    }
+
+    /* Aqui foi usado o display block para voltar a pagina e o padding para ajustar o posiconamento,
+    pois como ele está dentro do header se usar margin não fica legal, então usa o padding para ajuste */
+    #logo-desktop {
+        display: block;
+        padding: 3.2rem 0;
+        animation: logorotate 10s 2s infinite;
+    }
+
+    
+
+    /* Apos criado o grid template-areas ai vai a identificação de cada imagem no grid */
+
+    .cards .card:nth-child(1) {
+        grid-area: A;
+    }
+
+    .cards .card:nth-child(2) {
+        grid-area: B;
+    }
+
+    .cards .card:nth-child(3) {
+        grid-area: C;
+    }
+
+    .cards .card:nth-child(4) {
+        grid-area: D;
+    }
+
+    .cards .card:nth-child(5) {
+        grid-area: E;
+    }
+
+    .cards .card:nth-child(6) {
+        grid-area: F;
+    }
+
+}
+
